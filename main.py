@@ -26,6 +26,6 @@ for path, subdirs, files in os.walk(path):
             arr.append([d, groundTruth, errorType])
             count += 1
 
-print(pd.DataFrame(arr))
-print(count)
+# print(pd.DataFrame(arr))
+# print(count)
 pd.DataFrame(arr).to_csv('dataset_buffer_overflow.csv', index_label = "Id", header  = ['Code Desc', "Is Error", "Error Type"])
