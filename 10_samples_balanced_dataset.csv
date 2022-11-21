@@ -1,0 +1,176 @@
+index,Code Desc,Is Error
+1,"typedef union
+{
+  int intval;
+  char buf[10];
+} my_union;
+
+int main(int argc, char *argv[])
+{
+  my_union u;
+  u.buf[9] = 'A';
+
+  return 0;
+}
+",0
+2,"
+int main(int argc, char *argv[])
+{
+  int init_value;
+  int inc_value;
+  int loop_counter;
+  char buf[10];
+
+  init_value = 0;
+  inc_value = 9 - (9 - 1);
+
+  loop_counter = init_value;
+  while(1)
+  {
+    buf[loop_counter] = 'A';
+    loop_counter += inc_value;
+    if (loop_counter > 9) break;
+  }
+
+
+  return 0;
+}
+",0
+3,"
+int main(int argc, char *argv[])
+{
+  char * buf[10];
+
+  buf[9] = ""A"";
+
+
+  return 0;
+}
+",0
+4,"
+int main(int argc, char *argv[])
+{
+  unsigned char buf[10];
+
+
+  buf[9] = 'A';
+
+
+  return 0;
+}
+",0
+5,"
+void function1(char * buf, int counter)
+{
+  if (counter > 0)
+  {
+    function1(buf, counter - 1);
+  }
+  buf[9] = 'A';
+}
+
+int main(int argc, char *argv[])
+{
+  char buf[10];
+
+
+  function1(buf, 3);
+
+
+  return 0;
+}
+",0
+6,"
+int main(int argc, char *argv[])
+{
+  int i;
+  char buf[10];
+
+  i = 4106;
+
+  (buf + (4105 % i))[0] = 'A';
+
+
+  return 0;
+}
+",1
+7,"
+int main(int argc, char *argv[])
+{
+  int inc_value;
+  int loop_counter;
+  char buf[10];
+
+  inc_value = 17 - (17 - 1);
+
+  loop_counter = 0;
+  while(loop_counter += inc_value)
+  {
+    buf[17] = 'A';
+    if (loop_counter >= 17) break;
+  }
+
+
+  return 0;
+}
+",1
+8,"
+int main(int argc, char *argv[])
+{
+  int test_value;
+  int inc_value;
+  int loop_counter;
+  char buf[10];
+
+  test_value = 17;
+  inc_value = 17 - (17 - 1);
+
+  loop_counter = 0;
+  while((loop_counter += inc_value) && (loop_counter <= test_value))
+  {
+    buf[17] = 'A';
+  }
+
+
+  return 0;
+}
+",1
+9,"
+int main(int argc, char *argv[])
+{
+  int test_value;
+  int inc_value;
+  int loop_counter;
+  char buf[10];
+
+  test_value = 10;
+  inc_value = 10 - (10 - 1);
+
+  loop_counter = 0;
+  for( ; loop_counter <= test_value; loop_counter += inc_value)
+  {
+    buf[loop_counter] = 'A';
+  }
+
+
+  return 0;
+}
+",1
+10,"int main(int argc, char *argv[])
+{
+  int inc_value;
+  int loop_counter;
+  char buf[10];
+
+  inc_value = 10 - (10 - 1);
+
+  for(loop_counter = 0; loop_counter <= 10; )
+  {
+    buf[10] = 'A';
+    loop_counter += inc_value;
+  }
+
+
+  return 0;
+}
+",1
